@@ -271,7 +271,7 @@ export default function Certificates() {
             <div className="flex-1 overflow-y-auto">
               <div className="space-y-8 p-4 sm:p-7">
                 {/* Верх: превью слева, инструкция + мессенджеры справа */}
-                <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(360px,440px)] lg:items-stretch lg:gap-8">
+                <div className="grid gap-6 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-stretch lg:gap-6">
                   <ElectronicPreview
                     theme={selectedTheme}
                     amountToPreview={amountToPreview}
