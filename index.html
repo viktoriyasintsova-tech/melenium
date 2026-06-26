@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Millennium — премиальная парфюмерия: нишевые и селективные ароматы на разлив, подарочные сертификаты и подбор аромата. Доставка по России."
+    />
+    <link rel="icon" href="/assets/logo.png" />
+    <meta property="og:title" content="Millennium — парфюмерия" />
+    <meta
+      property="og:description"
+      content="Премиальные ароматы на разлив, подарочные сертификаты и подбор аромата по характеру."
+    />
+    <meta property="og:type" content="website" />
+    <title>Millennium — парфюмерия</title>
+    <link rel="preload" href="/assets/hero-bg.png" as="image" />
+    <link rel="preload" href="/assets/logo.png" as="image" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #faf8f4;
+      }
+
+      #app-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        background: #faf8f4;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+
+      #app-splash.app-splash--hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #app-splash img {
+        width: 200px;
+        max-width: 60vw;
+        height: auto;
+        filter: brightness(0);
+        opacity: 0.88;
+        animation: app-splash-pulse 1.6s ease-in-out infinite;
+      }
+
+      #app-splash .app-splash-spinner {
+        width: 26px;
+        height: 26px;
+        border-radius: 9999px;
+        border: 2px solid rgba(28, 28, 28, 0.15);
+        border-top-color: rgba(28, 28, 28, 0.65);
+        animation: app-splash-spin 0.8s linear infinite;
+      }
+
+      @keyframes app-splash-pulse {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 0.9;
+        }
+      }
+
+      @keyframes app-splash-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #app-splash img,
+        #app-splash .app-splash-spinner {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app-splash">
+      <img src="/assets/logo.png" alt="Millennium" />
+      <div class="app-splash-spinner" aria-hidden="true"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

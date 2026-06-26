@@ -1,0 +1,46 @@
+export const presetAmounts = ["3 000", "5 000", "10 000", "15 000", "20 000"];
+
+export const eCertificateThemes = [
+  {
+    id: "minimal-light",
+    label: "Minimal",
+    description: "Чистый фон без изображения",
+    useBackground: false,
+    cardClass: "bg-[#f3eee6] text-[#1b1713]",
+    logoClass: "brightness-0 opacity-[0.88]",
+    lineClass: "border-[#1b1713]/25",
+  },
+  {
+    id: "silk-veil",
+    label: "Silk Veil",
+    description: "Теплая ткань и мягкий свет",
+    useBackground: true,
+    background: "/assets/certificates/e-bg-veil.png",
+    cardClass: "text-[#faf7f1]",
+    overlayClass: "bg-black/40",
+    logoClass: "brightness-0 invert",
+    lineClass: "border-white/45",
+  },
+  {
+    id: "amber-mist",
+    label: "Amber Mist",
+    description: "Ароматный шлейф и атмосфера вечера",
+    useBackground: true,
+    background: "/assets/certificates/e-bg-mist.png",
+    cardClass: "text-[#fff8ef]",
+    overlayClass: "bg-black/45",
+    logoClass: "brightness-0 invert",
+    lineClass: "border-white/45",
+  },
+  {
+    id: "editorial",
+    label: "Editorial",
+    description: "Коллаж из fashion-кадров",
+    useBackground: true,
+    background: "/assets/certificates/e-bg-collage.png",
+    cardClass: "text-[#fff8ef]",
+    overlayClass: "bg-black/40",
+    logoClass: "brightness-0 invert",
+    lineClass: "border-white/45",
+  },
+];

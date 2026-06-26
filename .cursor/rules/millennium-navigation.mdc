@@ -1,0 +1,36 @@
+---
+description: Правила адаптивной навигации и header для сайта Millennium
+globs: src/**/*.{jsx,tsx,css}
+alwaysApply: true
+---
+
+# Millennium — навигация и header
+
+## Брейкпоинты
+
+- **< lg (< 1024px)** — mobile/tablet
+- **≥ lg (1024px+)** — desktop (ориентир Figma 1440)
+
+## Mobile & tablet (< lg)
+
+- Использовать **burger menu** (не inline-навигацию в шапке)
+- **Логотип слева**, без pill-контейнера
+- **Без background, border и backdrop-blur** у header bar
+- Справа: иконка корзины (`Handbag` из Lucide) + burger (`Menu` / `X`)
+- Меню открывается overlay/drawer справа со всеми пунктами навигации
+
+## Desktop (lg+)
+
+- Glass pill navbar: `1280×84px`, `rounded-[50px]`
+- `backdrop-blur-[12.5px]`, `bg-white/10`, `border #e3ddcd`
+- Логотип по центру между левым и правым меню
+- Inline-навигация: 14px, gap 32px
+
+## Иконки
+
+- Lucide React: `Handbag` (корзина), `Menu` / `X` (burger), `ChevronDown` (dropdown)
+
+## Шрифты
+
+- Основной UI: **Manrope**
+- Акцентные заголовки секций: **Denistina** (когда появятся блоки ниже hero)
