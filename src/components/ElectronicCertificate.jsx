@@ -27,7 +27,7 @@ export default function ElectronicPreview({
     <div
       onContextMenu={blockSave}
       onDragStart={blockSave}
-      className={`relative mx-auto w-full max-w-[720px] overflow-hidden rounded-[20px] border sm:rounded-[24px] ${
+      className={`relative w-full max-w-[720px] overflow-hidden rounded-[20px] border sm:rounded-[24px] ${
         sample ? "select-none" : ""
       } ${theme.lineClass} ${theme.cardClass} aspect-[3/4] sm:aspect-[4/5] lg:aspect-[16/10]`}
     >

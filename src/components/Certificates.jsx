@@ -271,7 +271,7 @@ export default function Certificates() {
             <div className="flex-1 overflow-y-auto">
               <div className="space-y-8 p-4 sm:p-7">
                 {/* Верх: превью слева, инструкция + мессенджеры справа */}
-                <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(300px,360px)] lg:items-start lg:gap-8">
+                <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(360px,440px)] lg:items-stretch lg:gap-8">
                   <ElectronicPreview
                     theme={selectedTheme}
                     amountToPreview={amountToPreview}
@@ -281,7 +281,7 @@ export default function Certificates() {
                     code={certCode}
                   />
 
-                  <div className="space-y-5">
+                  <div className="flex flex-col gap-5">
                     <div className="rounded-[16px] border border-white/12 bg-white/[0.04] p-4 sm:p-5">
                       <div className="flex items-center gap-2 text-[#f3ede5]">
                         <ShieldCheck className="h-4 w-4 shrink-0" strokeWidth={1.9} />
@@ -309,7 +309,9 @@ export default function Certificates() {
                     <OrderButtons
                       message={certMessage}
                       tone="dark"
+                      compact
                       heading="Оформить сертификат через мессенджер"
+                      className="lg:mt-auto"
                     />
                   </div>
                 </div>

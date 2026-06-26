@@ -87,8 +87,11 @@ export default function OrderButtons({
   heading = "Оформить заказ через мессенджер",
   tone = "light",
   className = "",
+  compact = false,
 }) {
   const styles = toneStyles[tone] ?? toneStyles.light;
+  const buttonHeight = compact ? "h-[42px]" : "h-[50px]";
+  const buttonsGap = compact ? "gap-2" : "gap-2.5";
   const [hint, setHint] = useState(null);
   const hideTimer = useRef(null);
 
@@ -128,13 +131,13 @@ export default function OrderButtons({
       >
         {heading}
       </p>
-      <div className="mt-3 grid grid-cols-1 gap-2.5">
+      <div className={`mt-3 grid grid-cols-1 ${buttonsGap}`}>
         {channels.map(({ id, label, Icon }) => (
           <button
             key={id}
             type="button"
             onClick={() => handleOrder(id, label)}
-            className={`flex h-[50px] items-center justify-center gap-2.5 rounded-full border font-sans text-[14px] font-medium site-motion ${styles.button}`}
+            className={`flex ${buttonHeight} items-center justify-center gap-2.5 rounded-full border font-sans text-[14px] font-medium site-motion ${styles.button}`}
           >
             <Icon />
             {label}
