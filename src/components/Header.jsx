@@ -68,6 +68,19 @@ function NavLink({
 const creamPillClass =
   "border border-[#e3ddcd] bg-[#faf8f4] shadow-[0_12px_34px_rgba(28,28,28,0.12)] backdrop-blur-none";
 
+function IconCountBadge({ count, solid }) {
+  if (!count) return null;
+  return (
+    <span
+      className={`absolute -right-1.5 -top-1.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full px-1 font-sans text-[10px] font-semibold tabular-nums leading-none ${
+        solid ? "bg-[#1c1c1c] text-white" : "bg-white text-[#1c1c1c] shadow-[0_1px_4px_rgba(0,0,0,0.18)]"
+      }`}
+    >
+      {count > 99 ? "99+" : count}
+    </span>
+  );
+}
+
 export default function Header({ variant = "hero" }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -79,10 +92,8 @@ export default function Header({ variant = "hero" }) {
   const mobileSolid = scrolled || isCream;
   const textClass = mobileSolid ? "text-[#1c1c1c]" : "text-white";
   const logoClass = mobileSolid ? "brightness-0 opacity-[0.88]" : "";
-  const cartCountClass = mobileSolid ? "text-[#1c1c1c]" : "text-white";
   const desktopTextClass = isCream ? "text-[#1c1c1c]" : "text-white";
   const desktopLogoClass = isCream ? "brightness-0 opacity-[0.88]" : "";
-  const desktopCartCountClass = isCream ? "text-[#1c1c1c]" : "text-white";
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -140,33 +151,21 @@ export default function Header({ variant = "hero" }) {
         <div className="flex items-center gap-4">
           <Link
             to="/favorites"
-            aria-label="Избранное"
+            aria-label={favCount > 0 ? `Избранное: ${favCount}` : "Избранное"}
             className="relative inline-flex items-center site-motion hover:opacity-80"
           >
             <Heart className={`h-5 w-5 ${textClass}`} strokeWidth={1.5} />
-            {favCount > 0 && (
-              <span
-                className={`absolute right-0 top-0 translate-x-[35%] -translate-y-[15%] font-sans text-[10px] font-medium tabular-nums leading-none ${cartCountClass}`}
-              >
-                {favCount}
-              </span>
-            )}
+            <IconCountBadge count={favCount} solid={mobileSolid} />
           </Link>
 
           <button
             type="button"
-            aria-label="Корзина"
+            aria-label={totalCount > 0 ? `Корзина: ${totalCount}` : "Корзина"}
             onClick={openCart}
             className="relative inline-flex items-center site-motion hover:opacity-80"
           >
             <Handbag className={`h-5 w-5 ${textClass}`} strokeWidth={1.5} />
-            {totalCount > 0 && (
-              <span
-                className={`absolute right-0 top-0 translate-x-[20%] -translate-y-[15%] font-sans text-[10px] font-medium tabular-nums leading-none ${cartCountClass}`}
-              >
-                {totalCount}
-              </span>
-            )}
+            <IconCountBadge count={totalCount} solid={mobileSolid} />
           </button>
 
           <button
@@ -221,32 +220,20 @@ export default function Header({ variant = "hero" }) {
             ))}
             <Link
               to="/favorites"
-              aria-label="Избранное"
+              aria-label={favCount > 0 ? `Избранное: ${favCount}` : "Избранное"}
               className="relative inline-flex shrink-0 items-center site-motion hover:opacity-80"
             >
               <Heart className={`h-6 w-6 ${desktopTextClass}`} strokeWidth={1.5} />
-              {favCount > 0 && (
-                <span
-                  className={`absolute right-0 top-0 translate-x-[35%] -translate-y-[15%] font-sans text-[11px] font-medium tabular-nums leading-none ${desktopCartCountClass}`}
-                >
-                  {favCount}
-                </span>
-              )}
+              <IconCountBadge count={favCount} solid={isCream} />
             </Link>
             <button
               type="button"
-              aria-label="Корзина"
+              aria-label={totalCount > 0 ? `Корзина: ${totalCount}` : "Корзина"}
               onClick={openCart}
               className="relative inline-flex shrink-0 items-center site-motion hover:opacity-80"
             >
               <Handbag className={`h-6 w-6 ${desktopTextClass}`} strokeWidth={1.5} />
-              {totalCount > 0 && (
-                <span
-                  className={`absolute right-0 top-0 translate-x-[20%] -translate-y-[15%] font-sans text-[11px] font-medium tabular-nums leading-none ${desktopCartCountClass}`}
-                >
-                  {totalCount}
-                </span>
-              )}
+              <IconCountBadge count={totalCount} solid={isCream} />
             </button>
           </nav>
         </div>

@@ -24,7 +24,7 @@ export function ProductCardGrid({ product, variant = "light" }) {
           slug={product.slug}
           tone={isDark ? "dark" : "light"}
           size="sm"
-          className="absolute right-2.5 top-2.5 z-10 shadow-[0_4px_14px_rgba(28,28,28,0.12)]"
+          className="absolute right-3 top-3 z-10"
         />
       </div>
 

@@ -55,7 +55,7 @@ export default function CatalogFilterButton({
       >
         <SlidersHorizontal className="h-4 w-4" strokeWidth={1.5} />
         {hasActiveFilters && !open && (
-          <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#faf8f4] bg-[#c64b4b]" />
+          <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#faf8f4] bg-[#1c1c1c]" />
         )}
       </button>
 

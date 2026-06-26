@@ -10,13 +10,13 @@ export default function FavoriteButton({
   const { isFavorite, toggleFavorite } = useFavorites();
   const active = isFavorite(slug);
 
-  const dimensions = size === "sm" ? "h-8 w-8" : "h-9 w-9 sm:h-10 sm:w-10";
-  const iconSize = size === "sm" ? "h-4 w-4" : "h-[18px] w-[18px]";
+  const dimensions = size === "sm" ? "h-9 w-9" : "h-10 w-10 sm:h-11 sm:w-11";
+  const iconSize = size === "sm" ? "h-[17px] w-[17px]" : "h-[18px] w-[18px]";
 
-  const base =
+  const inactive =
     tone === "dark"
-      ? "border-white/25 bg-black/20 text-white hover:border-white/50"
-      : "border-[#1c1c1c]/15 bg-white/80 text-[#1c1c1c] hover:border-[#1c1c1c]/40";
+      ? "border-white/30 bg-white/90 text-[#1c1c1c] hover:border-white/50"
+      : "border-[#1c1c1c]/10 bg-white text-[#1c1c1c] hover:border-[#1c1c1c]/25";
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -32,13 +32,13 @@ export default function FavoriteButton({
       aria-label={active ? "Убрать из избранного" : "Добавить в избранное"}
       className={`flex shrink-0 items-center justify-center rounded-full border site-motion ${dimensions} ${
         active
-          ? "border-[#c64b4b]/30 bg-[#c64b4b]/10 text-[#c64b4b] hover:border-[#c64b4b]/50"
-          : base
+          ? "border-[#1c1c1c]/15 bg-white text-[#1c1c1c]"
+          : inactive
       } ${className}`}
     >
       <Heart
         className={iconSize}
-        strokeWidth={1.7}
+        strokeWidth={active ? 0 : 1.5}
         fill={active ? "currentColor" : "none"}
       />
     </button>

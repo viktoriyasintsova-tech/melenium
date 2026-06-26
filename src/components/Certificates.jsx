@@ -269,41 +269,8 @@ export default function Certificates() {
             </div>
 
             <div className="flex-1 overflow-y-auto">
-              <div className="flex flex-col gap-6 p-4 sm:p-7 lg:grid lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:gap-8">
-                <div className="order-2 space-y-5 lg:order-1">
-                  <div className="rounded-[16px] border border-white/12 bg-white/[0.04] p-4 sm:p-5">
-                    <div className="flex items-center gap-2 text-[#f3ede5]">
-                      <ShieldCheck className="h-4 w-4 shrink-0" strokeWidth={1.9} />
-                      <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.12em]">
-                        Как оформить и активировать
-                      </p>
-                    </div>
-                    <ol className="mt-3 space-y-2.5 font-sans text-[12px] leading-[1.5] text-[#f3ede5]/70 sm:text-[13px]">
-                      {[
-                        "Укажите имя получателя — код и дата подставятся в сертификат автоматически.",
-                        "Сохраните или сделайте скриншот готового сертификата.",
-                        "Нажмите кнопку мессенджера ниже и отправьте продавцу изображение сертификата вместе с чеком об оплате.",
-                        "Продавец вносит код в реестр и подтверждает, что сертификат действителен.",
-                      ].map((step, i) => (
-                        <li key={i} className="flex gap-2.5">
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#f3ede5]/12 text-[11px] font-semibold text-[#f3ede5]">
-                            {i + 1}
-                          </span>
-                          <span>{step}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-
-                  <OrderButtons
-                    message={certMessage}
-                    tone="dark"
-                    heading="Оформить сертификат через мессенджер"
-                    className="border-t border-white/10 pt-5"
-                  />
-                </div>
-
-                <div className="order-1 space-y-5 lg:order-2 sm:space-y-6">
+              <div className="space-y-8 p-4 sm:p-7">
+                <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] lg:items-start lg:gap-8">
                   <ElectronicPreview
                     theme={selectedTheme}
                     amountToPreview={amountToPreview}
@@ -313,6 +280,40 @@ export default function Certificates() {
                     code={certCode}
                   />
 
+                  <div className="space-y-5">
+                    <div className="rounded-[16px] border border-white/12 bg-white/[0.04] p-4 sm:p-5">
+                      <div className="flex items-center gap-2 text-[#f3ede5]">
+                        <ShieldCheck className="h-4 w-4 shrink-0" strokeWidth={1.9} />
+                        <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.12em]">
+                          Как оформить и активировать
+                        </p>
+                      </div>
+                      <ol className="mt-3 space-y-2.5 font-sans text-[12px] leading-[1.5] text-[#f3ede5]/70 sm:text-[13px]">
+                        {[
+                          "Укажите имя получателя — код и дата подставятся в сертификат автоматически.",
+                          "Сохраните или сделайте скриншот готового сертификата.",
+                          "Нажмите кнопку мессенджера ниже и отправьте продавцу изображение сертификата вместе с чеком об оплате.",
+                          "Продавец вносит код в реестр и подтверждает, что сертификат действителен.",
+                        ].map((step, i) => (
+                          <li key={i} className="flex gap-2.5">
+                            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#f3ede5]/12 text-[11px] font-semibold text-[#f3ede5]">
+                              {i + 1}
+                            </span>
+                            <span>{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+
+                    <OrderButtons
+                      message={certMessage}
+                      tone="dark"
+                      heading="Оформить сертификат через мессенджер"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-6 border-t border-white/10 pt-6 sm:space-y-7">
                   <div>
                     <label
                       htmlFor="cert-recipient"
@@ -329,8 +330,13 @@ export default function Certificates() {
                       className="mt-2 w-full rounded-[12px] border border-white/20 bg-white/[0.03] px-4 py-3 font-sans text-[14px] text-[#f3ede5] outline-none placeholder:text-[#f3ede5]/40 focus:border-[#e3ddcd]"
                     />
                     <p className="mt-2 font-sans text-[11px] leading-[1.5] text-[#f3ede5]/45">
-                      Код {certCode ? <span className="font-mono text-[#f3ede5]/70">{certCode}</span> : "сертификата"} и
-                      дата формируются автоматически и уже видны на сертификате.
+                      Код{" "}
+                      {certCode ? (
+                        <span className="font-mono text-[#f3ede5]/70">{certCode}</span>
+                      ) : (
+                        "сертификата"
+                      )}{" "}
+                      и дата формируются автоматически и уже видны на сертификате.
                     </p>
                   </div>
 
@@ -363,13 +369,13 @@ export default function Certificates() {
                       placeholder="Или введите свой номинал"
                       value={customAmount}
                       onChange={(e) => setCustomAmount(e.target.value)}
-                      className="mt-3 w-full rounded-[12px] border border-white/20 bg-white/[0.03] px-4 py-3 font-sans text-[14px] text-[#f3ede5] outline-none placeholder:text-[#f3ede5]/40 focus:border-[#e3ddcd]"
+                      className="mt-3 w-full rounded-[12px] border border-white/20 bg-white/[0.03] px-4 py-3 font-sans text-[14px] text-[#f3ede5] outline-none placeholder:text-[#f3ede5]/40 focus:border-[#e3ddcd] sm:max-w-[360px]"
                     />
                   </div>
 
                   <div>
                     <p className="font-sans text-[12px] text-[#f3ede5]/70">Выберите оформление</p>
-                    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
                       {eCertificateThemes.map((theme) => (
                         <button
                           key={theme.id}
