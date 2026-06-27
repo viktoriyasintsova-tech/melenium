@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, Handbag, Heart, Menu, X } from "lucide-react";
+import { Handbag, Heart, Menu, X } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useFavorites } from "../context/FavoritesContext";
 import { scrollToSection } from "../utils/scrollToSection";
@@ -8,7 +8,7 @@ import MessengerLinks from "./MessengerLinks";
 
 const leftLinks = [
   { label: "О нас", href: "/#about", scrollTarget: "about" },
-  { label: "Каталог ароматов", href: "/catalog", chevron: true },
+  { label: "Каталог ароматов", href: "/catalog" },
   { label: "Сертификаты", href: "/#certificates", scrollTarget: "certificates" },
 ];
 
@@ -24,7 +24,6 @@ const mobileNavLinkClass =
 function NavLink({
   label,
   href,
-  chevron,
   className = "",
   onClick,
   isRouter,
@@ -48,9 +47,6 @@ function NavLink({
     return (
       <Link to={href} onClick={handleClick} className={classes}>
         {label}
-        {chevron && (
-          <ChevronDown className="h-3 w-3 shrink-0" strokeWidth={1.75} aria-hidden="true" />
-        )}
       </Link>
     );
   }
@@ -58,9 +54,6 @@ function NavLink({
   return (
     <a href={href} onClick={handleClick} className={classes}>
       {label}
-      {chevron && (
-        <ChevronDown className="h-3 w-3 shrink-0" strokeWidth={1.75} aria-hidden="true" />
-      )}
     </a>
   );
 }
