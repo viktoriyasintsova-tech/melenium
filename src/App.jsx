@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import Header from "./components/Header";
+import SiteFooter from "./components/SiteFooter";
 import CartDrawer from "./components/cart/CartDrawer";
 import PageTransition from "./components/layout/PageTransition";
 import PageFallback from "./components/layout/PageFallback";
@@ -79,6 +80,7 @@ function AppContent() {
           }
         />
       </PageTransition>
+      <SiteFooter />
     </>
   );
 }
