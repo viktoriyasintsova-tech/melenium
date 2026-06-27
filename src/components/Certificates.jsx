@@ -284,7 +284,7 @@ export default function Certificates() {
                   />
 
                   <div className="flex flex-col gap-5">
-                    <div className="rounded-[16px] border border-white/12 bg-white/[0.04] p-4 sm:p-5">
+                    <div className="rounded-[20px] border border-white/12 bg-white/[0.04] p-4 sm:rounded-[24px] sm:p-5">
                       <div className="flex items-center gap-2 text-[#f3ede5]">
                         <ShieldCheck className="h-4 w-4 shrink-0" strokeWidth={1.9} />
                         <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.12em]">
