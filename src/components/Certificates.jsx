@@ -249,27 +249,29 @@ export default function Certificates() {
           aria-labelledby="e-cert-title"
         >
           <div className="relative flex h-[100dvh] min-h-0 w-full flex-col overflow-hidden">
-            <div className="sticky top-0 z-20 flex items-start justify-between gap-3 border-b border-white/10 bg-[#151210] px-4 py-4 sm:px-7 sm:py-5">
-              <div className="min-w-0 pr-2">
-                <h3
-                  id="e-cert-title"
-                  className="font-denistina text-[32px] leading-[0.9] text-[#f3ede5] sm:text-[44px]"
+            <div className="sticky top-0 z-20 border-b border-white/10 bg-[#151210]">
+              <div className="site-container flex items-start justify-between gap-3 py-4 sm:py-5">
+                <div className="min-w-0 pr-2">
+                  <h3
+                    id="e-cert-title"
+                    className="font-denistina text-[32px] leading-[0.9] text-[#f3ede5] sm:text-[44px]"
+                  >
+                    Электронный сертификат
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  aria-label="Закрыть"
+                  onClick={closeModal}
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/[0.08] text-[#f3ede5] site-motion hover:bg-white/[0.16]"
                 >
-                  Электронный сертификат
-                </h3>
+                  <X className="h-5 w-5" strokeWidth={1.9} />
+                </button>
               </div>
-              <button
-                type="button"
-                aria-label="Закрыть"
-                onClick={closeModal}
-                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/[0.08] text-[#f3ede5] site-motion hover:bg-white/[0.16]"
-              >
-                <X className="h-5 w-5" strokeWidth={1.9} />
-              </button>
             </div>
 
             <div className="flex-1 overflow-y-auto">
-              <div className="space-y-8 p-4 sm:p-7">
+              <div className="site-container space-y-8 py-6 sm:py-8">
                 {/* Верх: превью слева, инструкция + мессенджеры справа */}
                 <div className="grid gap-6 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-stretch lg:gap-6">
                   <ElectronicPreview
